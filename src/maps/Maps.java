@@ -60,7 +60,7 @@ public class Maps {
 
         // Print rows with headers and map content
         for (int row = 0; row < rows; row++) {
-            System.out.print((row + 1) % 10 + " "); // Row headers (use modulo for 1-digit alignment)
+            System.out.print((row + 0) % 10 + " "); // Row headers (use modulo for 1-digit alignment)
             for (int col = 0; col < cols; col++) {
                 System.out.print(map[row][col]);
             }

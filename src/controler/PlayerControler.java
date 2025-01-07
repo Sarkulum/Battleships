@@ -58,6 +58,8 @@ public class PlayerControler {
                 next = placeShip(playerMap, x, y, direction, length);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input format. x and y must be integers.");
+            }catch (ArrayIndexOutOfBoundsException e){
+                System.out.println("The ship would be out of bounds.");
             }
         }
         return next;

@@ -8,20 +8,20 @@ public class GameControler {
         if (direction == 'H') { // Horizontal
             if (y + length > map[0].length) return false; // Out of bounds
             for (int i = 0; i < length; i++) {
-                if (map[x][y + i] != '#') return false; // Overlapping
+                if (map[y][x + i] != '#') return false; // Overlapping
             }
             // Place the ship
             for (int i = 0; i < length; i++) {
-                map[x][y + i] = 'S';
+                map[y][x + i] = 'S';
             }
         } else if (direction == 'V') { // Vertical
             if (x + length > map.length) return false; // Out of bounds
             for (int i = 0; i < length; i++) {
-                if (map[x + i][y] != '#') return false; // Overlapping
+                if (map[y + i][x] != '#') return false; // Overlapping
             }
             // Place the ship
             for (int i = 0; i < length; i++) {
-                map[x + i][y] = 'S';
+                map[y + i][x] = 'S';
             }
         } else {
             return false; // Invalid direction
