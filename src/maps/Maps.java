@@ -1,6 +1,6 @@
 package maps;
 
-public class BotMap {
+public class Maps {
     //Private 2D char Array.
     private static char[][] botMap;
     private static char[][] playerMap;
@@ -46,7 +46,7 @@ public class BotMap {
         }
     }
 
-    //A function to print the 2D Array in the console. Dont have a clue how it works.
+    //A function to print the 2D Array in the console. Don't have a clue how it works.
     public static void printMap(char[][] map){
         for (char[] row : map){
             for (char cell : row){
