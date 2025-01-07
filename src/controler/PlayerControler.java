@@ -66,20 +66,19 @@ public class PlayerControler {
     public static void playerShoot() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Where do you want to hit?");
-        String input = scanner.nextLine();
-        String[] parts = input.split(",");
-        char[][] playerMap = getPlayerMap();
         boolean next = false;
 
-        if (parts.length == 2) {
-            int x = Integer.parseInt(parts[0].trim()); // Parse first number
-            int y = Integer.parseInt(parts[1].trim()); // Parse second number
+        while (!next) {
+            String input = scanner.nextLine();
+            String[] parts = input.split(",");
+            char[][] playerMap = getPlayerMap();
 
-            while (!false) {
+            if (parts.length == 2) {
+                int x = Integer.parseInt(parts[0].trim()); // Parse first number
+                int y = Integer.parseInt(parts[1].trim()); // Parse second number
+
                 next = fireShot(playerMap, x, y);
             }
-        }else{
-            System.out.println("Invalid input.");
         }
     }
 }

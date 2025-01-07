@@ -16,7 +16,7 @@ public class Main {
 
         while (wannaPlay){
             printMap(playerMap);
-            placeBotShips();
+            //placeBotShips();
             placePlayerShips();
             printMap(playerMap);
 
