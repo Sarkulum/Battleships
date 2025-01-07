@@ -5,3 +5,4 @@
 - Need to add println when ship is not placed because of overlap/out of bounds.
 - Some try catch might be needed to avoid game crashes.
 - Misses and hits are displayed on the player map.
+- Still need to add fog of war.
