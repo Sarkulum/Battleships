@@ -3,4 +3,5 @@
 - BotControler.placeBotShips does not seam to work as it does not end. Might be because of improper random number generation.
 - Need to add some line breaks as console output does not look good.
 - Need to add println when ship is not placed because of overlap/out of bounds.
-- Some try catch might be needed to avoid game crashes. 
+- Some try catch might be needed to avoid game crashes.
+- Misses and hits are displayed on the player map.

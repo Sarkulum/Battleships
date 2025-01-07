@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import static controler.BotControler.placeBotShips;
 import static controler.PlayerControler.placePlayerShips;
+import static controler.PlayerControler.playerShoot;
 import static maps.Maps.getPlayerMap;
 import static maps.Maps.printMap;
 import static userData.UserData.collectData;
@@ -17,9 +18,8 @@ public class Main {
         while (wannaPlay){
             printMap(playerMap);
             //placeBotShips();
-            placePlayerShips();
-            printMap(playerMap);
-
+            //placePlayerShips();
+            playerShoot();
         }
     }
 }

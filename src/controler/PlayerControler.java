@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 import static controler.GameControler.fireShot;
 import static controler.GameControler.placeShip;
-import static maps.Maps.getPlayerMap;
-import static maps.Maps.printMap;
+import static maps.Maps.*;
 
 public class PlayerControler {
     public static void placePlayerShips(){
@@ -17,26 +16,31 @@ public class PlayerControler {
 
            while (!next) {
                 if (i == 5) {
+                    System.out.println(" ");
                     System.out.println("Please place your carrier.");
                     String input = scanner.nextLine();
                     next = convertInputAndCall(input, 5);
                     printMap(playerMap);
                 } else if (i == 4) {
+                    System.out.println(" ");
                     System.out.println("Please place your battleship.");
                     String input = scanner.nextLine();
                     next = convertInputAndCall(input, 4);
                     printMap(playerMap);
                 } else if (i == 3) {
+                    System.out.println(" ");
                     System.out.println("Please place your cruiser.");
                     String input = scanner.nextLine();
                     next = convertInputAndCall(input, 3);
                     printMap(playerMap);
                 } else if (i == 2) {
+                    System.out.println(" ");
                     System.out.println("Please place your submarine.");
                     String input = scanner.nextLine();
                     next = convertInputAndCall(input, 3);
                     printMap(playerMap);
                 } else if (i == 1) {
+                    System.out.println(" ");
                     System.out.println("Please place your destroyer.");
                     String input = scanner.nextLine();
                     next = convertInputAndCall(input, 2);
@@ -73,13 +77,13 @@ public class PlayerControler {
         while (!next) {
             String input = scanner.nextLine();
             String[] parts = input.split(",");
-            char[][] playerMap = getPlayerMap();
+            char[][] botMap = getBotMap();
 
             if (parts.length == 2) {
                 int x = Integer.parseInt(parts[0].trim()); // Parse first number
                 int y = Integer.parseInt(parts[1].trim()); // Parse second number
 
-                next = fireShot(playerMap, x, y);
+                next = fireShot(botMap, x, y);
             }
         }
     }
