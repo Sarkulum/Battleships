@@ -48,9 +48,21 @@ public class Maps {
 
     //A function to print the 2D Array in the console. Don't have a clue how it works.
     public static void printMap(char[][] map){
-        for (char[] row : map){
-            for (char cell : row){
-                System.out.print(cell + " ");
+        int rows = map.length;
+        int cols = map[0].length;
+
+        // Print column headers
+        System.out.print("  "); // Align the column headers with the row headers
+        for (int col = 1; col <= cols; col++) {
+            System.out.print(col % 10); // Only display the last digit for double-digit numbers
+        }
+        System.out.println();
+
+        // Print rows with headers and map content
+        for (int row = 0; row < rows; row++) {
+            System.out.print((row + 1) % 10 + " "); // Row headers (use modulo for 1-digit alignment)
+            for (int col = 0; col < cols; col++) {
+                System.out.print(map[row][col]);
             }
             System.out.println();
         }
