@@ -53,7 +53,7 @@ public class Maps {
 
         // Print column headers
         System.out.print("  "); // Align the column headers with the row headers
-        for (int col = 1; col <= cols; col++) {
+        for (int col = 0; col <= cols; col++) {
             System.out.print(col % 10); // Only display the last digit for double-digit numbers
         }
         System.out.println();
