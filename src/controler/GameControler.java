@@ -94,7 +94,7 @@ public class GameControler {
         System.out.println("The bot has won.");
     }
 
-    public static void playerWon(){
+    public static void playerWon(String name){
         char[][] playerMap = getPlayerMap();
 
         for (int a = 0; a < playerMap.length; a++) {
@@ -104,6 +104,6 @@ public class GameControler {
                 }
             }
         }
-        System.out.println("You have won. :)");
+        System.out.println("You have won " +name+ "!!! :)");
     }
 }
