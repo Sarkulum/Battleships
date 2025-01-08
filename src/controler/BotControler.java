@@ -3,7 +3,8 @@ package controler;
 import java.util.Random;
 
 import static controler.GameControler.placeShip;
-import static maps.Maps.getBotMap;
+import static maps.Maps.*;
+import static maps.Maps.setMapValue;
 
 public class BotControler {
     //Function that should automatically place ships on the botMap based on randomness.
@@ -63,6 +64,31 @@ public class BotControler {
                 }
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                 return;
+            }
+        }
+    }
+
+    public static void fireBotShot(){
+        char[][] map = getBotMap();
+        int rows = map.length;
+        int columns = map[0].length;
+        boolean valid = false;
+
+        while (!valid) {
+            Random random = new Random();
+            int x = random.nextInt(rows);
+            int y = random.nextInt(columns);
+            char val = (char) getMapValue(map, x, y);
+
+
+            if (val == '#') {
+                System.out.println("The bot missed!!!");
+                setMapValue(map, x, y, 'O');
+                valid = true;
+            } else if (val == 'S') {
+                System.out.println("The bot hit you at: " +x+ ", " +y+ "!!!");
+                setMapValue(map, x, y, 'X');
+                valid = true;
             }
         }
     }

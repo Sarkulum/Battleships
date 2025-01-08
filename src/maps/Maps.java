@@ -60,9 +60,35 @@ public class Maps {
 
         // Print rows with headers and map content
         for (int row = 0; row < rows; row++) {
-            System.out.print((row + 0) % 10 + " "); // Row headers (use modulo for 1-digit alignment)
+            System.out.print((row) % 10 + " "); // Row headers (use modulo for 1-digit alignment)
             for (int col = 0; col < cols; col++) {
                 System.out.print(map[row][col]);
+            }
+            System.out.println();
+        }
+    }
+
+    // Method to display the bot map with "fog of war"
+    public static void displayMapFogOfWar(char[][] map) {
+        int rows = map.length;
+        int cols = map[0].length;
+
+        System.out.print("  "); // Align the column headers with the row headers
+        for (int col = 0; col <= cols; col++) {
+            System.out.print(col % 10); // Only display the last digit for double-digit numbers
+        }
+        System.out.println();
+
+        // Print rows with headers and "fog of war"
+        for (int row = 0; row < rows; row++) {
+            System.out.print((row) % 10 + " "); // Row headers
+            for (int col = 0; col < cols; col++) {
+                char tile = map[row][col];
+                if (tile == 'S') { // Hide the ships
+                    System.out.print('#');
+                } else { // Show hits ('X') and misses ('O')
+                    System.out.print(tile);
+                }
             }
             System.out.println();
         }

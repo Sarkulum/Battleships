@@ -1,5 +1,6 @@
 package controler;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static controler.GameControler.fireShot;
@@ -87,5 +88,30 @@ public class PlayerControler {
                 next = fireShot(botMap, x, y);
             }
         }
+    }
+
+    public static boolean wannaPlayMore() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Do you want to play another round?");
+        String userInput = scanner.nextLine();
+        boolean inputValid = false;
+
+        while (!inputValid){
+            try {
+                if (userInput == "Yes") {
+                    inputValid = true;
+                    return true;
+                }else if (userInput == "No") {
+                    inputValid = true;
+                    System.out.println("Have a nice Day. :)");
+                    return false;
+                }else{
+                    System.out.println("Please only answer with 'Yes' or 'No'!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong type of input.");
+            }
+        }
+        return false;
     }
 }

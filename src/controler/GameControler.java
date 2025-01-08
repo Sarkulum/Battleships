@@ -61,4 +61,23 @@ public class GameControler {
             return false;
         }
     }
+
+    public static boolean areShipsRemaining(char[][] playerMap, char[][] botMap) {
+        for (int x = 0; x < playerMap.length; x++) {
+            for (int y = 0; y < playerMap[x].length; y++) {
+                if (playerMap[x][y] == 'S') {
+                    return true; // Found a ship segment
+                }
+            }
+        }
+
+        for (int a = 0; a < botMap.length; a++) {
+            for (int b = 0; b < botMap[a].length; b++) {
+                if (botMap[a][b] == 'S') {
+                    return true; // Found a ship segment
+                }
+            }
+        }
+        return false;
+    }
 }
