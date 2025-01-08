@@ -80,4 +80,30 @@ public class GameControler {
         }
         return false;
     }
+
+    public static void botWon(){
+        char[][] botMap = getBotMap();
+
+        for (int a = 0; a < botMap.length; a++) {
+            for (int b = 0; b < botMap[a].length; b++) {
+                if (botMap[a][b] == 'S') {
+                    return; // Found a ship segment
+                }
+            }
+        }
+        System.out.println("The bot has won.");
+    }
+
+    public static void playerWon(){
+        char[][] playerMap = getPlayerMap();
+
+        for (int a = 0; a < playerMap.length; a++) {
+            for (int b = 0; b < playerMap[a].length; b++) {
+                if (playerMap[a][b] == 'S') {
+                    return; // Found a ship segment
+                }
+            }
+        }
+        System.out.println("You have won. :)");
+    }
 }

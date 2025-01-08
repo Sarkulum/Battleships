@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import static controler.BotControler.fireBotShot;
 import static controler.BotControler.placeBotShips;
-import static controler.GameControler.areShipsRemaining;
+import static controler.GameControler.*;
 import static controler.PlayerControler.*;
 import static maps.Maps.*;
 import static userData.UserData.collectData;
@@ -29,6 +29,8 @@ public class Main {
                 printMap(playerMap);
                 shipsRemaining = areShipsRemaining(playerMap, botMap);
             }
+            botWon();
+            playerWon();
             wannaPlay = wannaPlayMore();
         }
     }
