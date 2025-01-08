@@ -55,8 +55,8 @@ public class PlayerControler {
         boolean next = false;
         if (parts.length == 3) {
             try {
-                int x = Integer.parseInt(parts[0].trim()); // Parse first number
-                int y = Integer.parseInt(parts[1].trim()); // Parse second number
+                int y = Integer.parseInt(parts[0].trim()); // Parse y number
+                int x = Integer.parseInt(parts[1].trim()); // Parse x number
                 char direction = parts[2].trim().toUpperCase().charAt(0); // Get first char of third part
                 char[][] playerMap = getPlayerMap();
                 next = placeShip(playerMap, x, y, direction, length);
@@ -80,8 +80,9 @@ public class PlayerControler {
             char[][] botMap = getBotMap();
 
             if (parts.length == 2) {
-                int x = Integer.parseInt(parts[0].trim()); // Parse first number
-                int y = Integer.parseInt(parts[1].trim()); // Parse second number
+                //X and Y need to be in "Y and then X" as otherwise input is reversed.
+                int y = Integer.parseInt(parts[0].trim()); // Parse y number
+                int x = Integer.parseInt(parts[1].trim()); // Parse x number
 
                 next = fireShot(botMap, x, y);
             }

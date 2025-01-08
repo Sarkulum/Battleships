@@ -19,8 +19,9 @@ public class Main {
             //printMap(playerMap);
             placeBotShips();
             printMap(botMap);
-            placePlayerShips();
-            //playerShoot();
-        //}
+            //placePlayerShips();
+        while (true){
+            playerShoot();
+        }
     }
 }

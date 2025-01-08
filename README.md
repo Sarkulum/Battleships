@@ -6,3 +6,6 @@
 - Some try catch might be needed to avoid game crashes.
 - Misses and hits are displayed on the player map.
 - Still need to add fog of war.
+
+# Note!!! #
+X and Y need to be swapped for player so that X is first int and y is second. This is usually not the case. Might be because of String conversion.
