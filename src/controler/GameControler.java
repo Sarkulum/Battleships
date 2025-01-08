@@ -4,6 +4,7 @@ import static maps.Maps.*;
 
 // I swapped x and y in the following code because it seamed to fix an issue where  the player input would be reversed. I found out that it might be the cause of a few issues.
 public class GameControler {
+
     public static boolean placeShip(char[][] map, int x, int y, char direction, int length) {
         // Validate the placement
         if (direction == 'H') { // Horizontal
