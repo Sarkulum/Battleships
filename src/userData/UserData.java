@@ -3,14 +3,15 @@ package userData;
 import java.util.Scanner;
 
 public class UserData {
-    public static String collectName(){
+    private static String playerName;
+
+    public static void collectName(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter your name: ");
-        String name = scanner.nextLine();
-
-        return name;
+        playerName = scanner.nextLine();
     }
+
     public static boolean collectAge(){
         Scanner scanner = new Scanner(System.in);
 
@@ -22,5 +23,9 @@ public class UserData {
             return false;
         }
         return true;
+    }
+
+    public static String getPlayerName(){
+        return playerName;
     }
 }

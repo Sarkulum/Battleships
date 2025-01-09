@@ -13,7 +13,9 @@ A fairly simplistic Battleships game. The bot pics all positions (ships and wher
 - Need to add println when ship is not placed because of overlap/out of bounds.
 - Some try catch might be needed to avoid game crashes.
 - Need to make a victory message.
-- Hit or miss messages are in the wrong function. They should be in PlayerControler
+- Hit or miss messages are in the wrong function. They should be in PlayerControler.
+- Score not accurate.
+- Name not correct in victory message.
 
 # Note!!! #
 X and Y need to be swapped inside the code for player so that X is first int and y is second. This is usually not the case. Might be because of String conversion.

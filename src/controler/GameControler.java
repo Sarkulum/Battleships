@@ -1,6 +1,8 @@
 package controler;
 
 import static maps.Maps.*;
+import static userData.UserData.getPlayerName;
+import static userData.score.scoreCount;
 
 // I swapped x and y in the following code because it seamed to fix an issue where  the player input would be reversed. I found out that it might be the cause of a few issues.
 public class GameControler {
@@ -45,10 +47,12 @@ public class GameControler {
 
         if (val == '#') {
             System.out.println("You missed!!!");
+            scoreCount(0);
             setMapValue(map, x, y, 'O');
             return true;
         } else if (val == 'S') {
             System.out.println("You hit!!!");
+            scoreCount(1);
             setMapValue(map, x, y, 'X');
             return true;
         } else if (val == 'X') {
@@ -67,6 +71,7 @@ public class GameControler {
         for (int x = 0; x < playerMap.length; x++) {
             for (int y = 0; y < playerMap[x].length; y++) {
                 if (playerMap[x][y] == 'S') {
+                    System.out.println("playerShip found");
                     return true; // Found a ship segment
                 }
             }
@@ -75,10 +80,12 @@ public class GameControler {
         for (int a = 0; a < botMap.length; a++) {
             for (int b = 0; b < botMap[a].length; b++) {
                 if (botMap[a][b] == 'S') {
-                    return true; // Found a ship segment
+                    System.out.println("botShip found");
+                    return true;// Found a ship segment
                 }
             }
         }
+        System.out.println("no ship found");
         return false;
     }
 
@@ -95,7 +102,8 @@ public class GameControler {
         System.out.println("The bot has won.");
     }
 
-    public static void playerWon(String name){
+    public static void playerWon(){
+        String name = getPlayerName();
         char[][] playerMap = getPlayerMap();
 
         for (int a = 0; a < playerMap.length; a++) {

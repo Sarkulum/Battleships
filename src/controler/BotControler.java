@@ -5,6 +5,7 @@ import java.util.Random;
 import static controler.GameControler.placeShip;
 import static maps.Maps.*;
 import static maps.Maps.setMapValue;
+import static userData.score.scoreCount;
 
 public class BotControler {
     //Function that should automatically place ships on the botMap based on randomness.
@@ -87,6 +88,7 @@ public class BotControler {
                 valid = true;
             } else if (val == 'S') {
                 System.out.println("The bot hit you at: " +x+ ", " +y+ "!!!");
+                scoreCount(-1);
                 setMapValue(map, x, y, 'X');
                 valid = true;
             }
