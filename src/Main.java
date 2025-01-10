@@ -20,6 +20,7 @@ public class Main {
         displayScores();
         System.out.println(" ");
         collectName();
+        System.out.println(" ");
         boolean oldEnough = collectAge();
 
         if(oldEnough) {

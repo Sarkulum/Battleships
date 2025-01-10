@@ -5,6 +5,16 @@ public class Maps {
     private static char[][] botMap;
     private static char[][] playerMap;
 
+    //ANSI colors
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String BLUE = "\u001B[34m";
+    public static final String PURPLE = "\u001B[35m";
+    public static final String CYAN = "\u001B[36m";
+    public static final String WHITE = "\u001B[37m";
+
     //Fill the 2D Array with # for empty fields and make it 10x10 based on normal battleships map.
     static {
         botMap = new char[10][10];
@@ -62,7 +72,16 @@ public class Maps {
         for (int row = 0; row < rows; row++) {
             System.out.print((row) % 10 + " "); // Row headers (use modulo for 1-digit alignment)
             for (int col = 0; col < cols; col++) {
-                System.out.print(map[row][col]);
+                if (map[row][col] == '#'){
+                    System.out.print('#');
+                }else if (map[row][col] == 'S'){
+                    System.out.print(GREEN+ 'S' +RESET);
+                }else if (map[row][col] == 'O'){
+                    System.out.print(BLUE+ 'O' +RESET);
+                }else if (map[row][col] == 'X'){
+                    System.out.print(RED+ 'X' +RESET);
+                }
+                //System.out.print(map[row][col]);
             }
             System.out.println();
         }
@@ -86,8 +105,12 @@ public class Maps {
                 char tile = map[row][col];
                 if (tile == 'S') { // Hide the ships
                     System.out.print('#');
-                } else { // Show hits ('X') and misses ('O')
-                    System.out.print(tile);
+                } else if (tile == 'X'){ // Show hits ('X') and misses ('O')
+                    System.out.print(RED+map[row][col]+RESET);
+                } else if (tile == 'O') {
+                    System.out.print(BLUE+map[row][col]+RESET);
+                }else if (tile == '#'){
+                    System.out.print(map[row][col]);
                 }
             }
             System.out.println();
