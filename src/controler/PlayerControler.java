@@ -16,6 +16,7 @@ public class PlayerControler {
     public static void placePlayerShips(){
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("You place ships by typing 'X,Y,Orientation' The Orientation can only be 'v' for vertical of 'h' for horizontal.");
         for (int i = 1; i <= 5; i++) {
             char[][] playerMap = getPlayerMap();
             boolean next = false;
@@ -66,6 +67,13 @@ public class PlayerControler {
                 char direction = parts[2].trim().toUpperCase().charAt(0); // Get first char of third part
                 char[][] playerMap = getPlayerMap();
                 next = placeShip(playerMap, x, y, direction, length);
+                if (!next){
+                    System.out.println("Position or orientation not valid please try again.");
+                    System.out.println(" ");
+                }else{
+                    System.out.println("Ship was placed.");
+                    System.out.println(" ");
+                }
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input format. x and y must be integers.");
             }catch (ArrayIndexOutOfBoundsException e){
@@ -77,7 +85,7 @@ public class PlayerControler {
 
     public static void playerShoot() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Where do you want to hit?");
+        System.out.println("Where do you want to hit? Type 'X,Y'.");
         boolean next = false;
 
         while (!next) {
@@ -91,6 +99,8 @@ public class PlayerControler {
                 int x = Integer.parseInt(parts[1].trim()); // Parse x number
 
                 next = fireShot(botMap, x, y);
+            }else{
+                System.out.println("Invalid input please try again:");
             }
         }
     }

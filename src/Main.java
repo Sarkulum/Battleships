@@ -16,29 +16,36 @@ public class Main {
         char[][] botMap = getBotMap();
 
         ensureFileExists("scores.txt");
+        System.out.println("Previous scores:");
         displayScores();
         System.out.println(" ");
         collectName();
-        String playerName = getPlayerName();
         boolean oldEnough = collectAge();
 
         if(oldEnough) {
             while (wannaPlay) {
-                boolean shipsRemaining = true;
                 placeBotShips();
-                printMap(botMap);
-                //printMap(playerMap);
-                //placePlayerShips();
-                while (shipsRemaining) {
+                //printMap(botMap);
+                printMap(playerMap);
+                System.out.println(" ");
+                placePlayerShips();
+                while (playerShipRemaining() && botShipRemaining()) {
                     playerShoot();
-                    //displayMapFogOfWar(botMap);
-                    //fireBotShot();
-                    //printMap(playerMap);
-                    shipsRemaining = areShipsRemaining(playerMap, botMap);
+                    displayMapFogOfWar(botMap);
+                    System.out.println(" ");
+                    try {
+                        Thread.sleep(2000); // Pauses program for 2000 milliseconds.
+                    } catch (InterruptedException e) {
+                        e.printStackTrace(); // Handle the exception if the thread is interrupted
+                    }
+                    fireBotShot();
+                    printMap(playerMap);
+                    System.out.println(" ");
                 }
                 botWon();
                 playerWon();
                 scoreCount(2);
+                System.out.println(" ");
                 wannaPlay = wannaPlayMore();
             }
         }

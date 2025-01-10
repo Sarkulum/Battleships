@@ -67,34 +67,40 @@ public class GameControler {
         }
     }
 
-    public static boolean areShipsRemaining(char[][] playerMap, char[][] botMap) {
+    public static boolean playerShipRemaining() {
+        char[][] playerMap = getPlayerMap();
         for (int x = 0; x < playerMap.length; x++) {
             for (int y = 0; y < playerMap[x].length; y++) {
                 if (playerMap[x][y] == 'S') {
-                    System.out.println("playerShip found");
+                    //System.out.println("playerShip found");
                     return true; // Found a ship segment
                 }
             }
         }
+        //System.out.println("No player ship found"); Only used for Debugging
+        return false;
+    }
 
+    public static boolean botShipRemaining(){
+        char[][] botMap = getBotMap();
         for (int a = 0; a < botMap.length; a++) {
             for (int b = 0; b < botMap[a].length; b++) {
                 if (botMap[a][b] == 'S') {
-                    System.out.println("botShip found");
+                    //System.out.println("botShip found");
                     return true;// Found a ship segment
                 }
             }
         }
-        System.out.println("no ship found");
+        //System.out.println("No Bot ship found"); Only used for Debugging
         return false;
     }
 
     public static void botWon(){
-        char[][] botMap = getBotMap();
+        char[][] playerMap = getPlayerMap();
 
-        for (int a = 0; a < botMap.length; a++) {
-            for (int b = 0; b < botMap[a].length; b++) {
-                if (botMap[a][b] == 'S') {
+        for (int a = 0; a < playerMap.length; a++) {
+            for (int b = 0; b < playerMap[a].length; b++) {
+                if (playerMap[a][b] == 'S') {
                     return; // Found a ship segment
                 }
             }
@@ -104,11 +110,11 @@ public class GameControler {
 
     public static void playerWon(){
         String name = getPlayerName();
-        char[][] playerMap = getPlayerMap();
+        char[][] botMap = getBotMap();
 
-        for (int a = 0; a < playerMap.length; a++) {
-            for (int b = 0; b < playerMap[a].length; b++) {
-                if (playerMap[a][b] == 'S') {
+        for (int a = 0; a < botMap.length; a++) {
+            for (int b = 0; b < botMap[a].length; b++) {
+                if (botMap[a][b] == 'S') {
                     return; // Found a ship segment
                 }
             }

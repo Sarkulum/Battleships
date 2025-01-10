@@ -10,6 +10,7 @@ public class UserData {
 
         System.out.println("Please enter your name: ");
         playerName = scanner.nextLine();
+        System.out.println(" ");
     }
 
     public static boolean collectAge(){

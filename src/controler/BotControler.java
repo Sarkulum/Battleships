@@ -70,7 +70,7 @@ public class BotControler {
     }
 
     public static void fireBotShot(){
-        char[][] map = getBotMap();
+        char[][] map = getPlayerMap();
         int rows = map.length;
         int columns = map[0].length;
         boolean valid = false;

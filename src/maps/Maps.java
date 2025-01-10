@@ -74,7 +74,7 @@ public class Maps {
         int cols = map[0].length;
 
         System.out.print("  "); // Align the column headers with the row headers
-        for (int col = 0; col <= cols; col++) {
+        for (int col = 0; col <= cols -1; col++) {
             System.out.print(col % 10); // Only display the last digit for double-digit numbers
         }
         System.out.println();
